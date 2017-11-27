@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "UIComminicator"
-  s.version      = "0.0.3"
+  s.version      = "0.0.1"
   s.summary      = "组件化模块交互组件"
 
   s.description  = <<-DESC
