@@ -8,18 +8,19 @@
 
 import Foundation
 
-public protocol UICommunicationReceiver: UICommunicator where Self: UIViewController {
+public protocol UICommunicationReceiver: UICommunicator {
     
     /// 从转发器接收参数
     ///
     /// - Parameter paramertes: 转发参数
     func communicatorSender(transmit paramertes: [String: Any]?)
+    
 }
 
-public extension UICommunicationReceiver {
+public extension UICommunicationReceiver where Self: UIViewController {
     
     func communicatorSender(transmit paramertes: [String: Any]?) {
-        localizedMethodError(self, name: #function)
+        localizedMethodError(self as! UICommunicator, name: #function)
     }
 }
 

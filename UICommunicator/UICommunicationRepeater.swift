@@ -15,3 +15,7 @@ public protocol UICommunicationRepeater: UICommunicator {
     /// - Returns: 接收器(UICommunicationReceiver)
     func transmit() -> UICommunicationReceiver?
 }
+
+public extension UICommunicationRepeater {
+    
+}
