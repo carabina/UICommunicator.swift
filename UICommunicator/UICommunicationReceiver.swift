@@ -14,6 +14,7 @@ public protocol UICommunicationReceiver: UICommunicator {
     ///
     /// - Parameter paramertes: 转发参数
     func communicatorSender(transmit paramertes: [String: Any]?)
+    
 }
 
 public extension UICommunicationReceiver where Self: UIViewController {
