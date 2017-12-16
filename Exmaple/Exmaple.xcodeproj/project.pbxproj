@@ -15,9 +15,10 @@
 		4D206B2A1FE4CEC800A6E3B1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D206B291FE4CEC800A6E3B1 /* SecondViewController.swift */; };
 		4D206B2C1FE4CF2E00A6E3B1 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D206B2B1FE4CF2E00A6E3B1 /* ThirdViewController.swift */; };
 		4D206B2E1FE4CF3E00A6E3B1 /* ForthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D206B2D1FE4CF3E00A6E3B1 /* ForthViewController.swift */; };
-		4D206B301FE4D6B800A6E3B1 /* SecondRepeator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D206B2F1FE4D6B800A6E3B1 /* SecondRepeator.swift */; };
-		4D206B321FE4D6C600A6E3B1 /* ThirdRepeator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D206B311FE4D6C600A6E3B1 /* ThirdRepeator.swift */; };
-		4D206B341FE4D6D500A6E3B1 /* ForthRepeator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D206B331FE4D6D500A6E3B1 /* ForthRepeator.swift */; };
+		4D206B301FE4D6B800A6E3B1 /* SecondRepeater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D206B2F1FE4D6B800A6E3B1 /* SecondRepeater.swift */; };
+		4D206B321FE4D6C600A6E3B1 /* ThirdRepeater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D206B311FE4D6C600A6E3B1 /* ThirdRepeater.swift */; };
+		4D206B341FE4D6D500A6E3B1 /* ForthRepeater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D206B331FE4D6D500A6E3B1 /* ForthRepeater.swift */; };
+		4D206B381FE4E00800A6E3B1 /* Configration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D206B371FE4E00800A6E3B1 /* Configration.swift */; };
 		6B69FFA3650BB66EFD011A67 /* Pods_Exmaple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D0956FB7BE0A633B925A77 /* Pods_Exmaple.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,9 +34,10 @@
 		4D206B291FE4CEC800A6E3B1 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		4D206B2B1FE4CF2E00A6E3B1 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		4D206B2D1FE4CF3E00A6E3B1 /* ForthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthViewController.swift; sourceTree = "<group>"; };
-		4D206B2F1FE4D6B800A6E3B1 /* SecondRepeator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondRepeator.swift; sourceTree = "<group>"; };
-		4D206B311FE4D6C600A6E3B1 /* ThirdRepeator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdRepeator.swift; sourceTree = "<group>"; };
-		4D206B331FE4D6D500A6E3B1 /* ForthRepeator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthRepeator.swift; sourceTree = "<group>"; };
+		4D206B2F1FE4D6B800A6E3B1 /* SecondRepeater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondRepeater.swift; sourceTree = "<group>"; };
+		4D206B311FE4D6C600A6E3B1 /* ThirdRepeater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdRepeater.swift; sourceTree = "<group>"; };
+		4D206B331FE4D6D500A6E3B1 /* ForthRepeater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthRepeater.swift; sourceTree = "<group>"; };
+		4D206B371FE4E00800A6E3B1 /* Configration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configration.swift; sourceTree = "<group>"; };
 		BF04BE5D37D9F125E944F4D7 /* Pods-Exmaple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Exmaple.release.xcconfig"; path = "Pods/Target Support Files/Pods-Exmaple/Pods-Exmaple.release.xcconfig"; sourceTree = "<group>"; };
 		F4D0956FB7BE0A633B925A77 /* Pods_Exmaple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Exmaple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,12 +81,13 @@
 				4D206B201FE4CD6900A6E3B1 /* LaunchScreen.storyboard */,
 				4D206B1B1FE4CD6900A6E3B1 /* Main.storyboard */,
 				4D206B191FE4CD6900A6E3B1 /* ViewController.swift */,
-				4D206B2F1FE4D6B800A6E3B1 /* SecondRepeator.swift */,
+				4D206B2F1FE4D6B800A6E3B1 /* SecondRepeater.swift */,
 				4D206B291FE4CEC800A6E3B1 /* SecondViewController.swift */,
-				4D206B311FE4D6C600A6E3B1 /* ThirdRepeator.swift */,
+				4D206B311FE4D6C600A6E3B1 /* ThirdRepeater.swift */,
 				4D206B2B1FE4CF2E00A6E3B1 /* ThirdViewController.swift */,
-				4D206B331FE4D6D500A6E3B1 /* ForthRepeator.swift */,
+				4D206B331FE4D6D500A6E3B1 /* ForthRepeater.swift */,
 				4D206B2D1FE4CF3E00A6E3B1 /* ForthViewController.swift */,
+				4D206B371FE4E00800A6E3B1 /* Configration.swift */,
 			);
 			path = Exmaple;
 			sourceTree = "<group>";
@@ -235,14 +238,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D206B381FE4E00800A6E3B1 /* Configration.swift in Sources */,
 				4D206B2A1FE4CEC800A6E3B1 /* SecondViewController.swift in Sources */,
 				4D206B1A1FE4CD6900A6E3B1 /* ViewController.swift in Sources */,
-				4D206B321FE4D6C600A6E3B1 /* ThirdRepeator.swift in Sources */,
-				4D206B341FE4D6D500A6E3B1 /* ForthRepeator.swift in Sources */,
+				4D206B321FE4D6C600A6E3B1 /* ThirdRepeater.swift in Sources */,
+				4D206B341FE4D6D500A6E3B1 /* ForthRepeater.swift in Sources */,
 				4D206B2C1FE4CF2E00A6E3B1 /* ThirdViewController.swift in Sources */,
 				4D206B181FE4CD6900A6E3B1 /* AppDelegate.swift in Sources */,
 				4D206B2E1FE4CF3E00A6E3B1 /* ForthViewController.swift in Sources */,
-				4D206B301FE4D6B800A6E3B1 /* SecondRepeator.swift in Sources */,
+				4D206B301FE4D6B800A6E3B1 /* SecondRepeater.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

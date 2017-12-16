@@ -23,7 +23,19 @@ class ViewController: UIViewController {
     }
 
     @IBAction func presentSecondViewController(_ sender: Any) {
-        
+        DispatchQueue.main.async {
+            let parameters = ["ParamKey": "ParamValue"]
+            let second = SecondRepeater.default(paramerts: parameters)
+            self.call(.present, for: second)
+
+        }
+//        let vc = call(second)
+//
+//        let sb = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = sb.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController
+//        vc?.communicatorSender(transmit: parameters)
+//
+//        self.present(vc!, animated: true, completion: nil)
     }
     
     @IBAction func presentThirdViewController(_ sender: Any) {

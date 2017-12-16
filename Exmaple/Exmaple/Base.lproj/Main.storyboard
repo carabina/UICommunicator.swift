@@ -73,6 +73,7 @@
                     </view>
                     <connections>
                         <outlet property="label" destination="po3-R4-rDn" id="zxl-Aj-HR1"/>
+                        <segue destination="9rv-Jc-Sv8" kind="presentation" id="Erh-GH-Ro1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -105,6 +106,9 @@
                                 <rect key="frame" x="0.0" y="451.5" width="375" height="215.5"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="First"/>
+                                <connections>
+                                    <action selector="backFirstViewController:" destination="9rv-Jc-Sv8" eventType="touchUpInside" id="zZG-Ud-cqR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -126,7 +130,7 @@
                         <viewLayoutGuide key="safeArea" id="eP3-PJ-WRu"/>
                     </view>
                     <connections>
-                        <outlet property="label" destination="BQ3-wh-0Fe" id="oyu-jB-dpj"/>
+                        <outlet property="valueLabel" destination="BQ3-wh-0Fe" id="DnY-7w-cap"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iOS-pv-xdm" userLabel="First Responder" sceneMemberID="firstResponder"/>

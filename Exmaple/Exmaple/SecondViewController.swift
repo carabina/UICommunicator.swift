@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import UIComminicator
 
 class SecondViewController: UIViewController {
     
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        _ = valueLabel.text
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -25,6 +30,23 @@ class SecondViewController: UIViewController {
     }
     
     @IBAction func backFirstViewController(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+extension SecondViewController: UICommunicationReceiver {
+    
+    func communicatorSender(transmit paramertes: [String : Any]?) {
+        print(OperationQueue.current)
+        
+        _ = valueLabel.text
+        
+        let val = paramertes?["ParamKey"] as? String
+//        DispatchQueue.main.async {
+            print(valueLabel.tag)
+//                .text = val
+//        }
     }
     
 }
