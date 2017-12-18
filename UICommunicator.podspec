@@ -9,18 +9,18 @@
 Pod::Spec.new do |s|
 
   s.name         = "UICommunicator"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "组件化模块交互组件"
 
   s.description  = <<-DESC
             组件化模块交互组件，详见REAME.md 
                    DESC
 
-  s.homepage     = "https://git.coding.net/zevwings/UICommunicator.swift.git"
+  s.homepage     = "https://github.com/zevwings/UICommunicator.swift.git"
   s.license      = "MIT"
   s.author       = { "zevwings" => "zev.wings@gmail.com" }
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://git.coding.net/zevwings/UICommunicator.swift.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/zevwings/UICommunicator.swift.git", :tag => "#{s.version}" }
   s.source_files  = "UICommunicator/**/*.{swift,h,m}"
   s.requires_arc = true
 
