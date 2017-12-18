@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol UICommunicationReceiver: UICommunicator {
+public protocol UICommunicationReceiver: UICommunicationProtocol {
     
     /// 从转发器接收参数
     ///

@@ -13,7 +13,7 @@ public enum UICommunicatorSegue {
     case push
 }
 
-public protocol UICommunicationSender: UICommunicator {
+public protocol UICommunicationSender: UICommunicationProtocol {
     
     /// 从接收器回调获取参数
     ///

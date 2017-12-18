@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.name         = "UICommunicator.swift"
   s.version      = "0.0.2"
   s.summary      = "组件化模块交互组件"
-  s.module_name  = "UICommunication"
+  s.module_name  = "UICommunicator"
 
   s.description  = <<-DESC
             组件化模块交互组件，详见REAME.md 

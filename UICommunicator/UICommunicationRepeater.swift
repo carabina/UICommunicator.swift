@@ -8,12 +8,15 @@
 
 import Foundation
 
-public protocol UICommunicationRepeater: UICommunicator {
+public protocol UICommunicationRepeater: UICommunicationProtocol {
     
+    /// storyboard 名称
     var storyboard: String { get }
     
+    /// storyboard 对应 ViewController 的 storyboard id
     var identifier: String { get }
     
+    /// 从发送器传递的参数
     var parameters: [String: Any]? { get }
     
     /// 从发送器转发参数到接收器

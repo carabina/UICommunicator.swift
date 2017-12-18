@@ -8,13 +8,13 @@
 import UIKit
 
 //MARK: - UICommunicator
-public protocol UICommunicator {
+public protocol UICommunicationProtocol {
 
     /// 通讯器唯一标志，默认为空，建议 模块名称.通讯器名称，如：Login.LoginCommunicationSender
     var communicatorIdentifier: String { get }
 }
 
-public extension UICommunicator {
+public extension UICommunicationProtocol {
     
     var communicatorIdentifier: String {
         return ""

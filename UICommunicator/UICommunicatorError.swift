@@ -8,7 +8,7 @@
 
 import Foundation
 
-func localizedVariableError(_ communicator: UICommunicator) {
+func localizedVariableError(_ communicator: UICommunicationProtocol) {
     
     #if DEBUG
         let message = "identifier is Empty, You should implement 'communicatorIdentifier' variable in \(communicator)"
@@ -17,7 +17,7 @@ func localizedVariableError(_ communicator: UICommunicator) {
 
 }
 
-func localizedMethodError(_ communicator: UICommunicator, name: String) {
+func localizedMethodError(_ communicator: UICommunicationProtocol, name: String) {
     
     #if DEBUG
         let message = "\(communicator) does not implement the function \(name), You should implement this option function when you want to receive message from the communication sender."
