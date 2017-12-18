@@ -51,7 +51,7 @@ public extension UICommunicationRepeater {
         guard storyboard.count > 0 else { return nil }
         guard identifier.count > 0 else { return nil }
         
-        let sb = UIStoryboard(name: storyboard, bundle: nil)
+        let sb = UIStoryboard(name: storyboard, bundle: bundle)
         let vc = sb.instantiateViewController(withIdentifier: identifier) as? UICommunicationReceiver
 
         DispatchQueue.main.async {
