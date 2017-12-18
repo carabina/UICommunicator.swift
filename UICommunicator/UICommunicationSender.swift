@@ -44,19 +44,23 @@ public extension UICommunicationSender where Self: UIViewController {
     ///   - segue: 跳转方式
     ///   - repeater: 通讯器
     ///   - animated: 是否添加跳转动画
+    @discardableResult
     func call<T: UICommunicationRepeater>(_ segue: UICommunicatorSegue,
-                                          for repeater: T,
-                                          animated: Bool = true) {
+                                                 for repeater: T,
+                                                 animated: Bool = true)
+        -> UIViewController? {
         
         guard let reciever = call(repeater,
                                   shouldCallback: true,
-                                  shouldCached: false) else { return }
+                                  shouldCached: false) else { return nil}
         
         if segue == .present {
             present(reciever, animated: animated, completion: nil)
         } else {
             navigationController?.pushViewController(reciever, animated: animated)
         }
+        
+        return reciever
     }
     
     /// 发送器转发参数到转发器
@@ -66,7 +70,10 @@ public extension UICommunicationSender where Self: UIViewController {
     ///   - shouldCallback: 是否需要回调
     ///   - shouldCached: 是否需要缓存
     /// - Returns: 接收器(UIViewController)
-    func call<T: UICommunicationRepeater>(_ repeater: T, shouldCallback: Bool = false, shouldCached: Bool = false) -> UIViewController? {
+    func call<T: UICommunicationRepeater>(_ repeater: T,
+                                                 shouldCallback: Bool = false,
+                                                 shouldCached: Bool = false)
+        -> UIViewController? {
         
         let receiver = _getCommunicationReceiver(by: repeater, shouldCached: shouldCached)
         
@@ -80,7 +87,9 @@ public extension UICommunicationSender where Self: UIViewController {
         return receiver as? UIViewController
     }
     
-    private func _getCommunicationReceiver<T: UICommunicationRepeater>(by repeater: T, shouldCached: Bool) -> UICommunicationReceiver? {
+    private func _getCommunicationReceiver<T: UICommunicationRepeater>(by repeater: T,
+                                                                       shouldCached: Bool)
+        -> UICommunicationReceiver? {
         
         let identifier = repeater.communicatorIdentifier
         
