@@ -31,9 +31,10 @@ public extension UICommunicationRepeater {
         
         let sb = UIStoryboard(name: storyboard, bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: identifier) as? UICommunicationReceiver
+
         DispatchQueue.main.async {
             if let param = self.parameters {
-                vc?.communicatorSender(transmit: param)
+                vc?.communicatorSender(by: self, transmit: param)
             }
         }
         return vc

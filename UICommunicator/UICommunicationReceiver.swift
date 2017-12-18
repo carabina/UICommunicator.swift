@@ -8,18 +8,18 @@
 
 import Foundation
 
-public protocol UICommunicationReceiver: UICommunicationProtocol {
+/// 一个通讯接收器需要遵从 UICommunicationProtocol 协议和 NSObjectProtocol 协议
+public protocol UICommunicationReceiver: UICommunicationProtocol, NSObjectProtocol {
     
     /// 从转发器接收参数
     ///
     /// - Parameter paramertes: 转发参数
-    func communicatorSender(transmit paramertes: [String: Any]?)
-    
+    func communicatorSender(by repeater: UICommunicationRepeater, transmit paramertes: [String: Any]?)
 }
 
 public extension UICommunicationReceiver where Self: UIViewController {
     
-    func communicatorSender(transmit paramertes: [String: Any]?) {
+    func communicatorSender(by repeater: UICommunicationRepeater, transmit paramertes: [String: Any]?) {
         localizedMethodError(self, name: #function)
     }
 }

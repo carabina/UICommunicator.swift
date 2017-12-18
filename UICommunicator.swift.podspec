@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.module_name  = "UICommunicator"
 
   s.description  = <<-DESC
-            组件化模块交互组件，详见REAME.md 
+                   组件化模块交互组件，详见REAME.md 
                    DESC
 
   s.homepage     = "https://github.com/zevwings/UICommunicator.swift.git"

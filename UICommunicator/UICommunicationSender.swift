@@ -13,7 +13,8 @@ public enum UICommunicatorSegue {
     case push
 }
 
-public protocol UICommunicationSender: UICommunicationProtocol {
+/// 一个通讯发送器需要遵从 UICommunicationProtocol 协议和 NSObjectProtocol 协议
+public protocol UICommunicationSender: UICommunicationProtocol, NSObjectProtocol {
     
     /// 从接收器回调获取参数
     ///
