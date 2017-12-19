@@ -21,7 +21,7 @@ public protocol UICommunicationSender: UICommunicationProtocol, NSObjectProtocol
     /// - Parameters:
     ///   - receiver: 接收器
     ///   - paramertes: 回调参数
-    func communicatorReceiver(_ receiver: UICommunicationReceiver?, callback paramertes: [String: Any]?)
+    func receiver(callback paramertes: Any?, by repeater: UICommunicationRepeater)
 }
 
 public extension UICommunicationSender {
@@ -31,7 +31,7 @@ public extension UICommunicationSender {
     /// - Parameters:
     ///   - receiver: 接收器
     ///   - paramertes: 回调参数
-    func communicatorReceiver(_ receiver: UICommunicationReceiver?, callback paramertes: [String: Any]?) {
+    func receiver(callback paramertes: Any?, by repeater: UICommunicationRepeater) {
         localizedMethodError(self, name: #function)
     }
 }
@@ -46,8 +46,8 @@ public extension UICommunicationSender where Self: UIViewController {
     ///   - animated: 是否添加跳转动画
     @discardableResult
     func call<T: UICommunicationRepeater>(_ segue: UICommunicatorSegue,
-                                                 for repeater: T,
-                                                 animated: Bool = true)
+                                          for repeater: T,
+                                          animated: Bool = true)
         -> UIViewController? {
         
         guard let reciever = call(repeater,
@@ -71,43 +71,56 @@ public extension UICommunicationSender where Self: UIViewController {
     ///   - shouldCached: 是否需要缓存
     /// - Returns: 接收器(UIViewController)
     func call<T: UICommunicationRepeater>(_ repeater: T,
-                                                 shouldCallback: Bool = false,
-                                                 shouldCached: Bool = false)
+                                          shouldCallback: Bool = false,
+                                          shouldCached: Bool = false)
         -> UIViewController? {
         
-        let receiver = _getCommunicationReceiver(by: repeater, shouldCached: shouldCached)
+            guard let receiver = _getCommunicationReceiver(by: repeater) else {
+                return nil
+            }
         
-        if shouldCallback,
-            let identifier = receiver?.communicatorIdentifier,
-            !identifier.isEmpty {
+            // 转发数据到 `UICommunicationReceiver`
+            if let parameters = repeater.parameters {
+                receiver.sender(transmit: parameters, by: repeater)
+            }
             
-            UICommunicatorContext.shared.senders[identifier] = self
-        }
-        
-        return receiver as? UIViewController
+            // 是否需要缓存 `UICommunicationReceiver`
+            let repeaterIdentifier = repeater.communicatorIdentifier
+            if shouldCached && !repeaterIdentifier.isEmpty {
+                UICommunicatorContext.shared.receivers[repeater.communicatorIdentifier] = receiver
+            } else if shouldCached && repeaterIdentifier.isEmpty {
+                localizedVariableError(repeater)
+            }
+            
+            // 是否需要缓存 `UICommunicationSender` 和 `UICommunicationRepeater`
+            let receiverIdentifier = receiver.communicatorIdentifier
+            if shouldCallback && !receiverIdentifier.isEmpty {
+                UICommunicatorContext.shared.senders[receiverIdentifier] = self
+                UICommunicatorContext.shared.repeaters[receiverIdentifier] = repeater
+            } else if shouldCallback && receiverIdentifier.isEmpty {
+                localizedVariableError(repeater)
+            }
+            
+            return receiver as? UIViewController
     }
     
-    private func _getCommunicationReceiver<T: UICommunicationRepeater>(by repeater: T,
-                                                                       shouldCached: Bool)
+    private func _getCommunicationReceiver<T: UICommunicationRepeater>(by repeater: T)
         -> UICommunicationReceiver? {
         
-        let identifier = repeater.communicatorIdentifier
-        
-        if identifier.isEmpty {
-            localizedVariableError(repeater)
-            return repeater.transmit()
-        }
+            let identifier = repeater.communicatorIdentifier
+            
+            if identifier.isEmpty {
+                return repeater.transmit()
+            }
 
-        if let receiver = UICommunicatorContext.shared.receivers[identifier] {
+            if let receiver = UICommunicatorContext.shared.receivers[identifier] {
+                return receiver
+            }
+
+            guard let receiver = repeater.transmit() else {
+                 return nil
+            }
+            
             return receiver
-        }
-
-        guard let receiver = repeater.transmit() else {
-             return nil
-        }
-
-        UICommunicatorContext.shared.receivers[identifier] = receiver
-        
-        return receiver
     }
 }

@@ -42,7 +42,6 @@ public extension UICommunicationRepeater {
     /// 从发送器传递的参数
     var parameters: [String: Any]? { return nil }
 
-    
     /// 从发送器转发参数到接收器， 只实现UIStoryboard 方式
     ///
     /// - Returns: 接收器(UICommunicationReceiver)
@@ -53,12 +52,6 @@ public extension UICommunicationRepeater {
         
         let sb = UIStoryboard(name: storyboard, bundle: bundle)
         let vc = sb.instantiateViewController(withIdentifier: identifier) as? UICommunicationReceiver
-
-        DispatchQueue.main.async {
-            if let param = self.parameters {
-                vc?.communicatorSender(by: self, transmit: param)
-            }
-        }
         return vc
     }
 }

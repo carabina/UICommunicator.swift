@@ -12,10 +12,23 @@ public class UICommunicatorContext: NSObject {
     
     public static let shared = UICommunicatorContext()
     
-    internal var senders: [String: UICommunicationSender] = [:]
-    internal var receivers: [String: UICommunicationReceiver] = [:]
+    public internal(set) var senders: [String: UICommunicationSender] = [:]
+    public internal(set) var receivers: [String: UICommunicationReceiver] = [:]
+    public internal(set) var repeaters: [String: UICommunicationRepeater] = [:]
     
     public func clear() {
-        self.receivers.removeAll()
+        receivers.removeAll()
+    }
+    
+    public func removeSender(by identifier: String) {
+        senders.removeValue(forKey: identifier)
+    }
+    
+    public func removeReceiver(by identifier: String) {
+        receivers.removeValue(forKey: identifier)
+    }
+    
+    public func removeRepeaters(by identifier: String) {
+        repeaters.removeValue(forKey: identifier)
     }
 }

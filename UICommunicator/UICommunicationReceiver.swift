@@ -14,12 +14,12 @@ public protocol UICommunicationReceiver: UICommunicationProtocol, NSObjectProtoc
     /// 从转发器接收参数
     ///
     /// - Parameter paramertes: 转发参数
-    func communicatorSender(by repeater: UICommunicationRepeater, transmit paramertes: [String: Any]?)
+    func sender(transmit paramertes: Any?, by repeater: UICommunicationRepeater)
 }
 
 public extension UICommunicationReceiver where Self: UIViewController {
     
-    func communicatorSender(by repeater: UICommunicationRepeater, transmit paramertes: [String: Any]?) {
+    func sender(transmit paramertes: Any?, by repeater: UICommunicationRepeater) {
         localizedMethodError(self, name: #function)
     }
 }
@@ -32,21 +32,28 @@ public extension UICommunicationReceiver {
     /// - Parameters:
     ///   - paramertes: 回调参数
     ///   - isFinished: 是否结束回调，默认直接结束
-    func callback(with paramertes: [String: Any]?, isFinished: Bool = true) {
+    @discardableResult
+    func callback(with paramertes: Any? = nil, isFinished: Bool = true) -> UICommunicationSender? {
         
-        let identifier = self.communicatorIdentifier
+        let receiverIdentifier = communicatorIdentifier
         
-        if identifier.isEmpty {
+        guard !receiverIdentifier.isEmpty else {
             localizedVariableError(self)
-            return
+            return nil
         }
+
+        let sender = UICommunicatorContext.shared.senders[receiverIdentifier]
+        let repeater = UICommunicatorContext.shared.repeaters[receiverIdentifier]
         
-        if let sender = UICommunicatorContext.shared.senders[identifier] {
-            sender.communicatorReceiver(self, callback: paramertes)
+        if let p = paramertes, let r = repeater {
+            sender?.receiver(callback: p, by: r)
         }
         
         if isFinished {
-            UICommunicatorContext.shared.senders.removeValue(forKey: identifier)
+            UICommunicatorContext.shared.senders[receiverIdentifier] = nil
+            UICommunicatorContext.shared.repeaters[receiverIdentifier] = nil
         }
+        
+        return sender
     }
 }
