@@ -81,7 +81,9 @@ public extension UICommunicationSender where Self: UIViewController {
         
             // 转发数据到 `UICommunicationReceiver`
             if let parameters = repeater.parameters {
-                receiver.sender(transmit: parameters, by: repeater)
+                DispatchQueue.main.async {
+                    receiver.sender(transmit: parameters, by: repeater)
+                }
             }
             
             // 是否需要缓存 `UICommunicationReceiver`
