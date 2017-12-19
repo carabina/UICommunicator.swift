@@ -75,7 +75,7 @@ public extension UICommunicationSender where Self: UIViewController {
                                           shouldCached: Bool = false)
         -> UIViewController? {
         
-            guard let receiver = _getCommunicationReceiver(by: repeater) else {
+            guard let receiver = getCommunicationReceiver(by: repeater) else {
                 return nil
             }
         
@@ -104,7 +104,7 @@ public extension UICommunicationSender where Self: UIViewController {
             return receiver as? UIViewController
     }
     
-    private func _getCommunicationReceiver<T: UICommunicationRepeater>(by repeater: T)
+    public func getCommunicationReceiver<T: UICommunicationRepeater>(by repeater: T)
         -> UICommunicationReceiver? {
         
             let identifier = repeater.communicatorIdentifier

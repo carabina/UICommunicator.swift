@@ -8,27 +8,19 @@
 
 import Foundation
 
+/// 管理缓存如下协议类型的，请注意释放缓存池类的数据
+/// 1.UICommunicationSender
+/// 2.UICommunicationReceiver
+/// 3.UICommunicationRepeater
 public class UICommunicatorContext: NSObject {
     
     public static let shared = UICommunicatorContext()
     
-    public internal(set) var senders: [String: UICommunicationSender] = [:]
-    public internal(set) var receivers: [String: UICommunicationReceiver] = [:]
-    public internal(set) var repeaters: [String: UICommunicationRepeater] = [:]
+    public var senders: [String: UICommunicationSender] = [:]
+    public var receivers: [String: UICommunicationReceiver] = [:]
+    public var repeaters: [String: UICommunicationRepeater] = [:]
     
     public func clear() {
         receivers.removeAll()
-    }
-    
-    public func removeSender(by identifier: String) {
-        senders.removeValue(forKey: identifier)
-    }
-    
-    public func removeReceiver(by identifier: String) {
-        receivers.removeValue(forKey: identifier)
-    }
-    
-    public func removeRepeaters(by identifier: String) {
-        repeaters.removeValue(forKey: identifier)
     }
 }
