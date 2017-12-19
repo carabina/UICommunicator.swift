@@ -20,7 +20,7 @@ public protocol UICommunicationRepeater: UICommunicationProtocol {
     var bundle: Bundle? { get }
     
     /// 从发送器传递的参数
-    var parameters: [String: Any]? { get }
+    var parameters: Any? { get }
     
     /// 从发送器转发参数到接收器
     ///

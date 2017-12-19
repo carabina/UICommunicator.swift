@@ -85,7 +85,7 @@ public extension UICommunicationSender where Self: UIViewController {
                     receiver.sender(transmit: parameters, by: repeater)
                 }
             }
-            
+        
             // 是否需要缓存 `UICommunicationReceiver`
             let repeaterIdentifier = repeater.communicatorIdentifier
             if shouldCached && !repeaterIdentifier.isEmpty {
@@ -93,7 +93,7 @@ public extension UICommunicationSender where Self: UIViewController {
             } else if shouldCached && repeaterIdentifier.isEmpty {
                 localizedVariableError(repeater)
             }
-            
+        
             // 是否需要缓存 `UICommunicationSender` 和 `UICommunicationRepeater`
             let receiverIdentifier = receiver.communicatorIdentifier
             if shouldCallback && !receiverIdentifier.isEmpty {
